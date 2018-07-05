@@ -47,6 +47,11 @@ public class BibleJpaServiceImpl implements BibleJpaService {
     return this.getConditions(queryRequestBody);
   }
 
+  @Override
+  public Specification<Bible> getDeleteByConditionSpecification(BibleQueryRequestBody queryRequestBody) {
+    return this.getConditions(queryRequestBody);
+  }
+
 
   public Specification<Bible> getConditions(BibleQueryRequestBody queryRequestBody) {
     return new Specification<Bible>() {

@@ -4,6 +4,7 @@ package com.minlia.module.bible.query;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.minlia.module.bible.entity.Bible;
 import com.minlia.module.data.body.AbstractQueryRequestBody;
+import com.minlia.module.data.enumeration.DataStatusEnumeration;
 import lombok.Data;
 
 /**
@@ -16,5 +17,7 @@ public class BibleQueryRequestBody extends AbstractQueryRequestBody {
   private String code;
   @JsonProperty
   private String label;
+  @JsonProperty
+  private DataStatusEnumeration dataStatus;
 
 }

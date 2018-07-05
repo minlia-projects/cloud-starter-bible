@@ -41,6 +41,12 @@ public class BibleBatisServiceImpl extends
     return this.getConditions(queryRequestBody);
   }
 
+  @Override
+  public EntityWrapper<Bible> getDeleteByConditionSpecification(
+      BibleQueryRequestBody queryRequestBody) {
+    return this.getConditions(queryRequestBody);
+  }
+
 
   public EntityWrapper<Bible> getConditions(BibleQueryRequestBody queryRequestBody) {
     EntityWrapper<Bible> entityWrapper = new EntityWrapper<Bible>();
@@ -54,6 +60,5 @@ public class BibleBatisServiceImpl extends
     }
     return entityWrapper;
   }
-
 
 }

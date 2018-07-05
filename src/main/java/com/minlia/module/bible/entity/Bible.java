@@ -32,7 +32,6 @@ import org.hibernate.annotations.Type;
 @Entity
 @Table(name = ENTITY_NAME)
 @TableName(ENTITY_NAME)
-
 public class Bible extends AbstractEntity<Long> {
 
 
@@ -52,13 +51,16 @@ public class Bible extends AbstractEntity<Long> {
 
   @ApiModelProperty(value = "Bible code")
   @JsonProperty
-
   private String code;
 
 
   @ApiModelProperty(value = "Label")
   @JsonProperty
   private String label;
+
+
+  //package class field
+
 
 
   @Transient

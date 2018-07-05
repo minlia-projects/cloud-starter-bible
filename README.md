@@ -2,6 +2,16 @@
 
 同时启用Mybatis与Data Jpa
 
+TypeSafe
+实现一个Bible的注解, 使用注解来访问
+@Bible(code="gender")
+国际化
+
+
+
+
+
+
 目录结构：  
 
 entity: 实体模型文件

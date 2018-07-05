@@ -5,6 +5,7 @@ import com.minlia.cloud.stateful.Responses;
 import com.minlia.cloud.stateful.body.StatefulBody;
 import com.minlia.cloud.stateful.body.impl.SuccessResponseBody;
 import com.minlia.module.bible.entity.Bible;
+import com.minlia.module.bible.query.BibleQueryRequestBody;
 import com.minlia.module.bible.service.BibleJpaService;
 import io.github.benas.randombeans.EnhancedRandomBuilder;
 import io.github.benas.randombeans.api.EnhancedRandom;
@@ -16,10 +17,17 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers;
+import org.springframework.data.domain.Pageable;
+
 
 @Slf4j
 @Api(tags = "Bible Mock Api", description = "Bible")
@@ -34,6 +42,23 @@ public class BibleMockEndpoint {
   @Autowired
   private BibleJpaService bibleJpaService;
 
+
+  @PostMapping(value = "/exampleQuery")
+  @ResponseBody
+  @ApiOperation(value = "Example Query")
+  public ResponseEntity<StatefulBody<Bible>> exampleQuery(@RequestBody BibleQueryRequestBody body,Pageable pageable) {
+
+    ExampleMatcher matcher = ExampleMatcher.matching()
+        .withMatcher("code", GenericPropertyMatchers.startsWith())
+        .withIgnorePaths("label");
+    Bible entity =new Bible();
+    entity.setCode(body.getCode());
+    entity.setLabel(body.getLabel());
+    entity.setDataStatus(body.getDataStatus());
+    Example<Bible> query = Example.of(entity, matcher);
+    return Responses.ok(SuccessResponseBody.builder().payload(bibleJpaService.findAllByCondition(query,pageable)).build());
+
+  }
 
   @RequestMapping(value = "/createMockData", method = RequestMethod.GET)
   @ResponseBody
