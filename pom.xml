@@ -162,8 +162,16 @@
       <version>2.0.3-SNAPSHOT</version>
     </dependency>
 
-
-
+    <dependency>
+      <groupId>com.minlia.cloud.starter</groupId>
+      <artifactId>cloud-starter-loggable</artifactId>
+      <version>2.0.3-SNAPSHOT</version>
+    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>io.github.lukehutch</groupId>-->
+      <!--<artifactId>fast-classpath-scanner</artifactId>-->
+      <!--<version>3.1.6</version>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>uk.co.jemos.podam</groupId>
       <artifactId>podam</artifactId>
@@ -182,6 +190,20 @@
       <version>1.9.3</version>
     </dependency>
 
+
+    <!--类扫描-->
+
+    <dependency>
+      <groupId>eu.infomas</groupId>
+      <artifactId>annotation-detector</artifactId>
+      <version>3.0.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.atteo.classindex</groupId>
+      <artifactId>classindex</artifactId>
+      <version>3.4</version>
+    </dependency>
 
 
 

@@ -1,11 +1,12 @@
 package com.minlia.module.bible.endpoint;
 
+import com.minlia.cloud.loggable.annotation.Loggable;
 import com.minlia.module.bible.entity.Bible;
 import com.minlia.module.bible.service.BibleJpaService;
-import com.minlia.module.data.endpoint.CreationEndpoint;
-import com.minlia.module.data.endpoint.DeleteByIdsEndpoint;
-import com.minlia.module.data.endpoint.FindOneByIdEndpoint;
-import com.minlia.module.data.endpoint.UpdateableEndpoint;
+import com.minlia.module.data.abstraction.endpoint.CreationEndpoint;
+import com.minlia.module.data.abstraction.endpoint.DeleteByIdsEndpoint;
+import com.minlia.module.data.abstraction.endpoint.FindOneByIdEndpoint;
+import com.minlia.module.data.abstraction.endpoint.UpdateableEndpoint;
 import com.minlia.module.data.interfaces.IRawService;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "api/v1/open/bible/crud")
 //@ApiVersion(value = ApiVersionPrefix.V1)
-//@Loggable
+@Loggable
 public class BibleCrudEndpoint implements
     CreationEndpoint<Bible, Long>
     , UpdateableEndpoint<Bible, Long>

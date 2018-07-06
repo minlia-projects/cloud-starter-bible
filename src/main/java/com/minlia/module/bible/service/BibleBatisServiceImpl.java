@@ -5,7 +5,7 @@ import com.minlia.module.bible.dao.BibleDao;
 import com.minlia.module.bible.entity.Bible;
 import com.minlia.module.bible.query.BibleQueryRequestBody;
 import com.minlia.module.data.batis.abstraction.AbstractMapper;
-import com.minlia.module.data.batis.service.AbstractBatisServiceImpl;
+import com.minlia.module.data.batis.abstraction.service.AbstractBatisServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

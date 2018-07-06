@@ -13,8 +13,4 @@ import org.apache.ibatis.annotations.Param;
 public interface BibleDao extends AbstractMapper<Bible> {
 
 
-  List<Bible> findAll(Pagination page, @Param("ew") Wrapper<Bible> wrapper);
-
-
-
 }
